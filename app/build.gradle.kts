@@ -52,6 +52,7 @@ android {
 dependencies {
 
     implementation(libs.androidx.foundation.android)
+    implementation(libs.androidx.foundation.android)
     val nav_version = "2.8.0"
     implementation("androidx.navigation:navigation-compose:$nav_version")
     implementation(libs.androidx.core.ktx)
@@ -69,4 +70,14 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    implementation ("androidx.compose.ui:ui:<version>")
+    implementation ("androidx.compose.material3:material3:<version>")
+    implementation ("androidx.compose.ui:ui-tooling-preview:<version>")
+    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:<version>")
+    implementation ("androidx.activity:activity-compose:<version>")
+    implementation ("androidx.compose.runtime:runtime-livedata:<version>")
+    implementation("io.coil-kt:coil-compose:2.2.2")
+    implementation ("androidx.compose.ui:ui:1.4.0")
+    implementation ("androidx.compose.material3:material3:1.0.1")
+    implementation ("androidx.activity:activity-compose:1.6.0")
 }

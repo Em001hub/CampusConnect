@@ -7,14 +7,11 @@ import androidx.activity.compose.setContent
 import androidx.core.view.WindowCompat
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
+import androidx.compose.ui.unit.dp
 import com.example.campusconnect.ui.theme.CampusConnectTheme
-
 
 class MainActivity : ComponentActivity() {
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -26,7 +23,6 @@ class MainActivity : ComponentActivity() {
                 Scaffold(
                     modifier = Modifier.fillMaxSize()
                 ) { innerPadding ->
-
                     App(modifier = Modifier.padding(innerPadding))
                 }
             }
@@ -36,30 +32,12 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun App(modifier: Modifier = Modifier) {
-    val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = "First", modifier = modifier) {
-        composable(route = "First") {
-            First(
-                navigationToSecond = { navController.navigate("Second") },
-                navigationToThird = { navController.navigate("Third") },
-                navigationToFourth = { navController.navigate("Fourth") }
-            )
-        }
-        composable(route = "Second") {
-            Second(
-                navigationToFirst = { navController.navigate("First") }
-            )
-        }
-        composable(route = "Third") {
-            Third(
-                navigationToFirst = { navController.navigate("First") }
-            )
-        }
-        composable(route = "Fourth") {
-            Fourth(
-                navigationToFirst = { navController.navigate("First") }
-            )
-        }
+    Column(
+        modifier = modifier
+            .fillMaxSize()
+            .padding(16.dp) // Ensure padding is in Dp
+    ) {
+        Text("Welcome to Campus Connect!")
     }
 }
 
